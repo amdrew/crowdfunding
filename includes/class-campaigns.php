@@ -30,7 +30,9 @@ class ATCF_Campaigns {
 	 * @return void
 	 */
 	function setup() {
-		define( 'EDD_SLUG', apply_filters( 'atcf_edd_slug', 'campaigns' ) );
+
+		if ( ! defined( 'EDD_SLUG' ) )
+			define( 'EDD_SLUG', apply_filters( 'atcf_edd_slug', 'campaigns' ) );
 		
 		add_filter( 'edd_download_labels', array( $this, 'download_labels' ) );
 		add_filter( 'edd_default_downloads_name', array( $this, 'download_names' ) );
